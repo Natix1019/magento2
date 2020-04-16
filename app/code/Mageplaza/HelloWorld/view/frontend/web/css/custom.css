@@ -1,0 +1,118 @@
+
+.cart-block{
+    float: left;
+    width: 30%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.cart-block .banner{
+    position: relative;
+    /*background-color: rgb(230,0,150);*/
+    background-image: url('../images/cartPromo-yellow.jpg');
+    background-position: center;
+    background-size: 84%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.cart-block .bottomCart{
+    background: #ffed26;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.cart-block .namecart{
+    height: 100%;
+    width: 100%;
+}
+.cart-block .namecart span{
+    padding: 3% 0;
+    display: block;
+}
+.cart-block .namesCarts{
+    text-align: center;
+    border-bottom: 1px solid #000;
+    font-weight: 900;
+    font-size: 18px;
+}
+.cart-block .namecart .nameUser{
+    font-size: 13px;
+    margin-left: 3%;
+    width: 76%;
+}
+.cart-block .namecart .nameUser input{
+    width: 40%;
+    height: 16px;
+}
+.cart-block .namecart .checkUser{
+    display: flex;
+}
+.cart-block .namecart .checkUser .buttonCheck{
+    font-size: 14px;
+    background: #ffed26;
+    border: none;
+    font-weight: 900;
+    box-shadow: none;
+    padding: 0;
+}
+
+
+.back{
+    display: none;
+    transform: rotateY(90deg);
+}
+.banner_green{
+    position: relative;
+    /*background-color: rgb(230,0,150);*/
+    background-image: url('../images/cartPromo-green.jpg');
+    background-position: center;
+    background-size: 84%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.bottomCart-back{
+    background: #16e36a;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.buttonCheck-back{
+    font-size: 14px;
+    background: #16e36a;
+    border: none;
+    font-weight: 900;
+    box-shadow: none;
+    padding: 0;
+}
+button:not(.primary){
+    box-shadow: none;
+}
+button:focus, button:active {
+    background: #16e36a;
+    border: none;
+    color: #000;
+}
+.cart-block .namecart .pad{
+    /*padding: 0;*/
+}
+.date-res{
+    display: flex;
+    margin-left: 4%;
+    margin-right: 11%;
+}
+.date-res span{
+    font-size: 18px;
+}
+.data-year:after{
+    content: '/';
+}
+.data-month:after{
+    content: '/';
+}
+.date-start{
+    display: flex;
+    font-size: 18px;
+    margin-left: 2%;
+}
+.date-start:after{
+    content: '-';
+    font-size: 21px;
+    margin-left: 7%;
+}

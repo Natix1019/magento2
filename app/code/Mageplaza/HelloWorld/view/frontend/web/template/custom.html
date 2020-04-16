@@ -1,0 +1,51 @@
+<!--<div data-bind="text: custommessage"></div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="cart-block" repeat="foreach: carts, item: 'cart'" data-bind="attr:{id:'id'+cart().id}">
+             <div class="front" data-bind="attr:{id:'id'+cart().id}">
+                <section class="banner">
+
+                    </br></br></br></br></br>
+                </section>
+                <div class="bottomCart">
+                    <div class="namecart">
+                        <span class="namesCarts" data-bind="text:cart().name">25% Promotion Cart</span>
+                        <div class="checkUser">
+                            <span class="nameUser">
+                                Enter your name
+                                <input type="text" class="textUser" data-bind="attr:{id:'id'+cart().id}" >
+                            </span>
+                            <button class="buttonCheck" data-bind="click: validUser(event),attr:{id:'id'+cart().id}">Check</button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="back" data-bind="attr:{id:'id'+cart().id}">
+                <section class="banner_green">
+
+                    </br></br></br></br></br>
+                </section>
+                <div class="bottomCart-back">
+                    <div class="namecart">
+                        <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
+                        <div class="checkUser">
+                            <div class="date-start">
+                                <span class="data-year" data-bind="text:cart().dataStart.getFullYear()"></span>
+                                <span class="data-month" data-bind="text:cart().dataStart.getMonth()"></span>
+                                <span class="data-day" data-bind="text:cart().dataStart.getDate()"></span>
+                            </div>
+                            <div class="date-res">
+                                <span class="data-year" data-bind="text:cart().dataFinish.getFullYear()"></span>
+                                <span class="data-month" data-bind="text:cart().dataFinish.getMonth()"></span>
+                                <span class="data-day" data-bind="text:cart().dataFinish.getDate()"></span>
+                            </div>
+                            <button class="buttonCheck-back" data-bind="click: backCart(event),attr:{id:'id'+cart().id}">Back</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
