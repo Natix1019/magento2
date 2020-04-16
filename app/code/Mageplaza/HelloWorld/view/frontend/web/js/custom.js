@@ -16,7 +16,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                     {
                         name:'45% Promotion Cart',
                         code : 'P25-GF3-24R',
-                        dataStart: new Date(2029,8,1),
+                        dataStart: new Date(2019,8,1),
                         dataFinish: new Date(2020,2,1),
                         status: 'used',
                         id : '2'
@@ -154,26 +154,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         }
                     })
                 })
-                // if(thisData<user.dataFinish){
-                //     for (let i=0;i<=180;i++){
-                //         // $('.cart-block').css('transition-duration','.40s');
-                //         // $('.cart-block').css('transition-delay','.5s');
-                //         $('.cart-block').css('transform','rotateY('+ i +'deg)');
-                //
-                //     }
-                // }else {
-                //     $('.bottomCart').css('background','red');
-                //     $('.checkUser').css('display','none');
-                //     $('.namesCarts').css('font-size','15px');
-                //     $('.namesCarts').css('border-bottom','none');
-                //     $('.namesCarts').html(user.name +
-                //         '</br>'
-                //         + 'end date of the promotion' + ' '
-                //         + user.dataFinish.getFullYear() + '.'
-                //         + user.dataFinish.getMonth() + '.'
-                //         + user.dataFinish.getDate());
-                //
-                // }
+
             }
             })
         } ,
@@ -215,21 +196,22 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
 
             setTimeout(function () {
                 $('#'+idCart+'.back').css('display','none');
-                this.nextOb(idCart);
+                $('#'+idCart+'.front').css('display','block');
+                console.log(idCart);
+                setTimeout(function () {
+                    for (let i = 90; i >= 0; i--) {
+                        $('#'+idCart+'.front').css('transition-duration', '4.5s');
+                        $('#'+idCart+'.front').css('transform', 'rotateY(' + i + 'deg)');
+
+                    }
+                },1000);
 
             },1500);
         },
-        nextOb:function (event) {
-            $('#'+event+'.front').css('display','block');
-            console.log('asf')
-            setTimeout(function () {
-                for (let i = 90; i >= 0; i--) {
-                    $('#' + event + '+.front').css('transition-duration', '4.5s');
-                    $('#' + event + '+.front').css('transform', 'rotateY(' + i + 'deg)');
 
-                }
-            },1000);
-        },
+
+
+
 
 
 

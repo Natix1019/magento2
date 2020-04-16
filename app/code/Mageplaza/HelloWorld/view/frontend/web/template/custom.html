@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="cart-block" repeat="foreach: carts, item: 'cart'" data-bind="attr:{id:'id'+cart().id}">
+        <div class="cart-block" repeat="foreach: carts, item: 'cart'" data-bind="attr:{id:'id'+cart().id},filterCart" >
              <div class="front" data-bind="attr:{id:'id'+cart().id}">
                 <section class="banner">
 
