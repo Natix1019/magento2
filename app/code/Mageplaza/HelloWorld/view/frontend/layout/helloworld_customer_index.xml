@@ -4,6 +4,7 @@
         <title>User Carts</title>
 <!--        <css src="css/custom.css"  src_type="url" rel="stylesheet" type="text/css" />-->
         <css src="Mageplaza_HelloWorld::css/custom.css"/>
+        <css src="Mageplaza_HelloWorld::css/bootstrap.min.css"/>
     </head>
     <body>
         <referenceContainer name="content">
