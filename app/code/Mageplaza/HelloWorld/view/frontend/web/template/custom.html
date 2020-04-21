@@ -1,8 +1,8 @@
 <!--<div data-bind="text: custommessage"></div>-->
 
-<div class="container">
+<!--<div class="container">-->
     <div class="row">
-        <div class="cart-block col-md-3" repeat="foreach: carts, item: 'cart'" data-bind="attr:{id:'id'+cart().id},afterRender:filterCart" >
+        <div class="cart-block col-md-3 col-sm-6 col-xs-12" repeat="foreach: carts, item: 'cart'" data-bind="attr:{id:'id'+cart().id},afterRender:filterCart" >
              <div class="front " data-bind="attr:{id:'id'+cart().id}">
                 <section class="banner" data-bind="attr:{id:'id'+cart().id}">
 
@@ -10,14 +10,15 @@
                 </section>
                 <div class="bottomCart">
                     <div class="namecart">
-                        <span class="namesCarts" data-bind="text:cart().name">25% Promotion Cart</span>
+                        <span class="namesCarts padd" data-bind="text:cart().name">25% Promotion Cart</span>
                         <div class="checkUser">
                             <span class="nameUser">
                                 Enter name
-                                <input type="text" class="textUser" data-bind="attr:{id:'id'+cart().id}" >
+                                <input type="text" class="textUser" data-bind="attr:{id:'id'+cart().id},event:{ 'keyup': keyUpValid }" >
                             </span>
                             <button class="buttonCheck" data-bind="click: function() { validUser(event) }, attr:{id:'id'+cart().id}">Check</button>
                         </div>
+                        <div class="errorName" data-bind="attr:{id:'id'+cart().id}"><p>There is no such name</p></div>
                     </div>
                 </div>
              </div>
@@ -31,14 +32,9 @@
                         <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
                         <div class="checkUser">
                             <div class="date-start">
-                                <span class="data-year" data-bind="text:cart().dataStart.getFullYear()"></span>
-                                <span class="data-month" data-bind="text:cart().dataStart.getMonth()"></span>
-                                <span class="data-day" data-bind="text:cart().dataStart.getDate()"></span>
-                            </div>
-                            <div class="date-res">
-                                <span class="data-year" data-bind="text:cart().dataFinish.getFullYear()"></span>
-                                <span class="data-month" data-bind="text:cart().dataFinish.getMonth()"></span>
-                                <span class="data-day" data-bind="text:cart().dataFinish.getDate()"></span>
+                                <span data-bind="text:cart().dataStart"></span>
+                                <span>-</span>
+                                <span data-bind="text:cart().dataFinish"></span>
                             </div>
                             <button class="buttonCheck-back" data-bind="click: function() { backCart(event) }, attr:{id:'id'+cart().id}">Back</button>
 
@@ -56,14 +52,9 @@
                         <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
                         <div class="checkUser-used">
                             <div class="date-start">
-                                <span class="data-year" data-bind="text:cart().dataStart.getFullYear()"></span>
-                                <span class="data-month" data-bind="text:cart().dataStart.getMonth()"></span>
-                                <span class="data-day" data-bind="text:cart().dataStart.getDate()"></span>
-                            </div>
-                            <div class="date-res">
-                                <span class="data-year" data-bind="text:cart().dataFinish.getFullYear()"></span>
-                                <span class="data-month" data-bind="text:cart().dataFinish.getMonth()"></span>
-                                <span class="data-day" data-bind="text:cart().dataFinish.getDate()"></span>
+                                <span data-bind="text:cart().dataStart"></span>
+                                <span> - </span>
+                                <span data-bind="text:cart().dataFinish"></span>
                             </div>
 
                         </div>
@@ -80,20 +71,14 @@
                         <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
                         <div class="checkUser-unavailable">
                             <div class="date-start">
-                                <span class="data-year" data-bind="text:cart().dataStart.getFullYear()"></span>
-                                <span class="data-month" data-bind="text:cart().dataStart.getMonth()"></span>
-                                <span class="data-day" data-bind="text:cart().dataStart.getDate()"></span>
+                                <span data-bind="text:cart().dataStart"></span>
+                                <span> - </span>
+                                <span data-bind="text:cart().dataFinish"></span>
                             </div>
-                            <div class="date-res">
-                                <span class="data-year" data-bind="text:cart().dataFinish.getFullYear()"></span>
-                                <span class="data-month" data-bind="text:cart().dataFinish.getMonth()"></span>
-                                <span class="data-day" data-bind="text:cart().dataFinish.getDate()"></span>
-                            </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<!--</div>-->
