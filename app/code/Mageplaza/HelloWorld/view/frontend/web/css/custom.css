@@ -8,21 +8,11 @@
         width: 33%;
     }
 }
-/*@media (max-width: 768px) {*/
-/*    .namecart .checkUser-unavailable .date-start, .checkUser-used {*/
-/*        font-size: 15px;*/
-/*    }*/
-/*}*/
 @media (max-width: 764px) {
     .row .cart-block{
         margin-top: 10%;
     }
 }
-/*@media (max-width: 1097px) {*/
-/*    .checkUser .date-start {*/
-/*        font-size: 16px;*/
-/*    }*/
-/*}*/
 .errorName{
     display: none;
     font-size: 16px;
@@ -31,16 +21,12 @@
     text-align: center;
 }
 .cart-block{
-    /*float: left;*/
-    /*width: 33% !important;*/
     margin-top: 5%;
-    /*margin-left: 2%;*/
     display: inline-flex;
     height: 170px;
 }
 .cart-block .banner{
     position: relative;
-    /*background-color: rgb(230,0,150);*/
     background-image: url('../images/cartPromo-yellow.jpg');
     background-position: center;
     background-size: 84%;
@@ -59,6 +45,7 @@
 .cart-block .namecart span{
     padding: 2% 0;
     display: block;
+    margin: 0 auto;
 }
 .cart-block .namesCarts{
     text-align: center;
@@ -99,7 +86,6 @@
 }
 .banner_green{
     position: relative;
-    /*background-color: rgb(230,0,150);*/
     background-image: url('../images/cartPromo-green.jpg');
     background-position: center;
     background-size: 84%;
@@ -128,9 +114,7 @@ button:focus, button:active {
     border: none;
     color: #000;
 }
-.cart-block .namecart .pad{
-    /*padding: 0;*/
-}
+
 
 
 .date-start{
@@ -146,7 +130,6 @@ button:focus, button:active {
 }
 .banner_used{
     position: relative;
-    /*background-color: rgb(230,0,150);*/
     background-image: url('../images/cartPromo-gray.jpg');
     background-position: center;
     background-size: 84%;
@@ -173,7 +156,6 @@ button:focus, button:active {
 }
 .banner_unavailable{
     position: relative;
-    /*background-color: rgb(230,0,150);*/
     background-image: url('../images/cartPromo-red.jpg');
     background-position: center;
     background-size: 84%;
@@ -194,9 +176,6 @@ button:focus, button:active {
     font-size: 18px;
     margin: 0 auto;
 }
-/*.bottomCart-unavailable .namecart span .namesCarts .pad {*/
-/*    padding: 1%;*/
-/*}*/
 span.namesCarts.pad{
     padding: 8px;
 }

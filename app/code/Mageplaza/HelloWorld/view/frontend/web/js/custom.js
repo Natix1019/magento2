@@ -3,14 +3,86 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
 
     return Component.extend({
         nameValue: ko.observable(null),
+        carts: ko.observableArray([
+            {
+                name:'25% Promotion Cart',
+                code : 'PRO-82K-I34',
+                dataStart:moment('2020/01/05').format('YYYY-MM-DD'),
+                dataFinish:moment('2020/06/25').format('YYYY-MM-DD'),
+                status : 'available',
+                id : '1'
+            },
+            {
+                name:'45% Promotion Cart',
+                code : 'P25-GF3-24R',
+                dataStart:moment('2019/08/01').format('YYYY-MM-DD'),
+                dataFinish:moment('2020/02/01').format('YYYY-MM-DD'),
+                status: 'unavailable',
+                id : '2'
+            },
+            {
+                name:'80% Promotion Cart',
+                code : 'KJ9-8SK-W4G',
+                dataStart: moment('2020/01/05').format('YYYY-MM-DD'),
+                dataFinish: moment('2020/02/21').format('YYYY-MM-DD'),
+                status : 'available',
+                id : '3'
+            },
+            {
+                name:'12% Promotion Cart',
+                code : 'O5F-82E-WW3',
+                dataStart: moment('2018/04/14').format('YYYY-MM-DD'),
+                dataFinish: moment('2019/06/08').format('YYYY-MM-DD'),
+                status : 'unavailable',
+                id : '4'
+            },
+            {
+                name:'5% Promotion Cart',
+                code : '25J-F2K-G6G',
+                dataStart: moment('2019/12/23').format('YYYY-MM-DD'),
+                dataFinish: moment('2021/02/25').format('YYYY-MM-DD'),
+                status : 'unavailable',
+                id : '5'
+            },
+            {
+                name:'50% Promotion Cart',
+                code : '68F-22K-5G5',
+                dataStart: moment('2019/12/23').format('YYYY-MM-DD'),
+                dataFinish: moment('2021/11/12').format('YYYY-MM-DD'),
+                status : 'available',
+                id : '6'
+            },
+            {
+                name:'75% Promotion Cart',
+                code : 'FF2-K2K-GT5',
+                dataStart: moment('2020/01/23').format('YYYY-MM-DD'),
+                dataFinish: moment('2023/02/28').format('YYYY-MM-DD'),
+                status : 'used',
+                id : '7'
+            },
+            {
+                name:'95% Promotion Cart',
+                code : 'P4O-12K-I12',
+                dataStart: moment('2020/01/05').format('YYYY-MM-DD'),
+                dataFinish: moment('2020/02/25').format('YYYY-MM-DD'),
+                status : 'available',
+                id : '8'
+            },
+            {
+                name:'80% Promotion Cart',
+                code : 'BRO-8GK-T40',
+                dataStart: moment('2019/08/05').format('YYYY-MM-DD'),
+                dataFinish: moment('2020/10/25').format('YYYY-MM-DD'),
+                status : 'available',
+                id : '9'
+            }
+        ]),
         defaults : {
-                carts : [
+                /* carts : [
                     {
                         name:'25% Promotion Cart',
                         code : 'PRO-82K-I34',
-                        // dataStart: new Date(2020,1,5),
                         dataStart:moment('2020/01/05').format('YYYY-MM-DD'),
-                        // dataFinish: new Date(2020,6,25),
                         dataFinish:moment('2020/06/25').format('YYYY-MM-DD'),
                         status : 'available',
                         id : '1'
@@ -19,9 +91,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'45% Promotion Cart',
                         code : 'P25-GF3-24R',
                         dataStart:moment('2019/08/01').format('YYYY-MM-DD'),
-                            // new Date(2019,8,1),
                         dataFinish:moment('2020/02/01').format('YYYY-MM-DD'),
-                            // new Date(2020,2,1),
                         status: 'unavailable',
                         id : '2'
                     },
@@ -29,9 +99,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'80% Promotion Cart',
                         code : 'KJ9-8SK-W4G',
                         dataStart: moment('2020/01/05').format('YYYY-MM-DD'),
-                            // new Date(2020,1,5),
                         dataFinish: moment('2020/02/21').format('YYYY-MM-DD'),
-                            // new Date(2020,2,21),
                         status : 'available',
                         id : '3'
                     },
@@ -39,9 +107,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'12% Promotion Cart',
                         code : 'O5F-82E-WW3',
                         dataStart: moment('2018/04/14').format('YYYY-MM-DD'),
-                            // new Date(2018,4,14),
                         dataFinish: moment('2019/06/08').format('YYYY-MM-DD'),
-                            // new Date(2019,6,8),
                         status : 'unavailable',
                         id : '4'
                     },
@@ -49,9 +115,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'5% Promotion Cart',
                         code : '25J-F2K-G6G',
                         dataStart: moment('2019/12/23').format('YYYY-MM-DD'),
-                            // new Date(2019,12,23),
                         dataFinish: moment('2021/02/25').format('YYYY-MM-DD'),
-                            // new Date(2021,2,25),
                         status : 'unavailable',
                         id : '5'
                     },
@@ -59,9 +123,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'50% Promotion Cart',
                         code : '68F-22K-5G5',
                         dataStart: moment('2019/12/23').format('YYYY-MM-DD'),
-                            // new Date(2019,12,23),
                         dataFinish: moment('2021/11/12').format('YYYY-MM-DD'),
-                            // new Date(2021,11,12),
                         status : 'available',
                         id : '6'
                     },
@@ -69,9 +131,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'75% Promotion Cart',
                         code : 'FF2-K2K-GT5',
                         dataStart: moment('2020/01/23').format('YYYY-MM-DD'),
-                            // new Date(2020,1,23),
                         dataFinish: moment('2023/02/28').format('YYYY-MM-DD'),
-                            // new Date(2023,2,28),
                         status : 'used',
                         id : '7'
                     },
@@ -79,9 +139,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'95% Promotion Cart',
                         code : 'P4O-12K-I12',
                         dataStart: moment('2020/01/05').format('YYYY-MM-DD'),
-                            // new Date(2020,1,5),
                         dataFinish: moment('2020/02/25').format('YYYY-MM-DD'),
-                            // new Date(2020,2,25),
                         status : 'available',
                         id : '8'
                     },
@@ -89,13 +147,11 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         name:'80% Promotion Cart',
                         code : 'BRO-8GK-T40',
                         dataStart: moment('2019/08/05').format('YYYY-MM-DD'),
-                            // new Date(2019,8,5),
                         dataFinish: moment('2020/10/25').format('YYYY-MM-DD'),
-                            // new Date(2020,10,25),
                         status : 'available',
                         id : '9'
                     }
-                ],
+                ], */
             users: [
                 {
                     name:'John',
@@ -152,11 +208,11 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                 }
             ]
         },
-        initObservable: function () {
+        /* initObservable: function () {
             this._super().observe(['carts']);
 
             return this;
-        },
+        }, */
         filterCart(){
             this.carts.filter(cart=>{
                 let dateNaw = new Date();
@@ -165,11 +221,14 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         $('#id'+cart.id+'.front').css('display','none');
                         $('#id'+cart.id+'.front-used').css('display','block');
                         $('#id'+cart.id+'.front-used').css('transform','rotateY(0)');
+                    }else {
+                        cart.status = 'available'
                     }
                 }else {
 
                     $('#id'+cart.id+'.front').css('display','none');
                     $('#id'+cart.id+'.front-unavailable').css('display','block');
+                    cart.status='unavailable';
                 }
             });
         },
@@ -190,11 +249,14 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
             this.users.forEach(user =>{
                 if (user.name===nameUser) {
                 // let thisData = new Date();
-                    this.carts.filter(cart=>{
+                    this.carts().filter(cart=>{
                         user.codes.filter(code =>{
                             if(code === cart.code){
                                 let korectId = 'id'+cart.id;
                                 if(korectId == idCart){
+                                    ko.options.deferUpdates = true;
+                                    cart.status='used';
+                                    console.log(this.carts());
                                     this.transformCart(idCart);
                                 }
                         }
@@ -202,6 +264,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                 })
 
             }else {
+
                     i++;
                     if (i===this.users.length){
                             $('#'+idCart+'.errorName').css('display','block');
@@ -221,7 +284,6 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                         $('#'+idCart+'.front').css('transform','rotateY('+ i +'deg)');
 
                     }
-
             setTimeout(function () {
                     $('#'+idCart+'.front').css('display','none');
                     $('#'+idCart+'+.back').css('display','block');
@@ -259,9 +321,6 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                 },100);
 
             },1100);
-            this.carts.filter(cart=>{
-                cart.status = 'used';
-            })
         },
 
 

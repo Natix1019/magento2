@@ -27,9 +27,11 @@
 
                     </br></br></br></br></br>
                 </section>
-                <div class="bottomCart-back">
+                <span data-bind="text:cart().status"></span>
+                <!-- ko if:cart().status === 'used' -->
+                <div class="bottomCart-back" >
                     <div class="namecart">
-                        <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
+                        <span class="namesCarts pad" data-bind="text:cart().code" />
                         <div class="checkUser">
                             <div class="date-start">
                                 <span data-bind="text:cart().dataStart"></span>
@@ -41,15 +43,17 @@
                         </div>
                     </div>
                 </div>
+                <!-- /ko -->
             </div>
             <div class="front-used" data-bind="attr:{id:'id'+cart().id}">
                 <section class="banner_used">
 
                     </br></br></br></br></br>
                 </section>
+                <!-- ko if:cart().status === 'used' -->
                 <div class="bottomCart-used">
                     <div class="namecart">
-                        <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
+                        <span class="namesCarts pad" data-bind="text:cart().code" />
                         <div class="checkUser-used">
                             <div class="date-start">
                                 <span data-bind="text:cart().dataStart"></span>
@@ -60,12 +64,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- /ko -->
             </div>
             <div class="front-unavailable" data-bind="attr:{id:'id'+cart().id}">
                 <section class="banner_unavailable">
 
                     </br></br></br></br></br>
                 </section>
+                <!-- ko if:cart().status === 'unavailable' -->
                 <div class="bottomCart-unavailable">
                     <div class="namecart">
                         <span class="namesCarts pad" data-bind="text:cart().code">25% Promotion Cart</span>
@@ -78,6 +84,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- /ko -->
             </div>
         </div>
     </div>
