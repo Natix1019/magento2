@@ -81,7 +81,7 @@
 
 .back{
     width: 100%;
-    display: none;
+    /*display: none;*/
     transform: rotateY(90deg);
 }
 .banner_green{
@@ -125,7 +125,7 @@ button:focus, button:active {
 }
 .front-used{
     width: 100%;
-    display: none;
+    /*display: none;*/
     transform: rotateY(90deg);
 }
 .banner_used{
@@ -152,7 +152,7 @@ button:focus, button:active {
 }
 .front-unavailable{
     width: 100%;
-    display: none;
+    /*display: none;*/
 }
 .banner_unavailable{
     position: relative;

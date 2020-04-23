@@ -3,80 +3,7 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
 
     return Component.extend({
         nameValue: ko.observable(null),
-        carts: ko.observableArray([
-            {
-                name:'25% Promotion Cart',
-                code : 'PRO-82K-I34',
-                dataStart:moment('2020/01/05').format('YYYY-MM-DD'),
-                dataFinish:moment('2020/06/25').format('YYYY-MM-DD'),
-                status : 'available',
-                id : '1'
-            },
-            {
-                name:'45% Promotion Cart',
-                code : 'P25-GF3-24R',
-                dataStart:moment('2019/08/01').format('YYYY-MM-DD'),
-                dataFinish:moment('2020/02/01').format('YYYY-MM-DD'),
-                status: 'unavailable',
-                id : '2'
-            },
-            {
-                name:'80% Promotion Cart',
-                code : 'KJ9-8SK-W4G',
-                dataStart: moment('2020/01/05').format('YYYY-MM-DD'),
-                dataFinish: moment('2020/02/21').format('YYYY-MM-DD'),
-                status : 'available',
-                id : '3'
-            },
-            {
-                name:'12% Promotion Cart',
-                code : 'O5F-82E-WW3',
-                dataStart: moment('2018/04/14').format('YYYY-MM-DD'),
-                dataFinish: moment('2019/06/08').format('YYYY-MM-DD'),
-                status : 'unavailable',
-                id : '4'
-            },
-            {
-                name:'5% Promotion Cart',
-                code : '25J-F2K-G6G',
-                dataStart: moment('2019/12/23').format('YYYY-MM-DD'),
-                dataFinish: moment('2021/02/25').format('YYYY-MM-DD'),
-                status : 'unavailable',
-                id : '5'
-            },
-            {
-                name:'50% Promotion Cart',
-                code : '68F-22K-5G5',
-                dataStart: moment('2019/12/23').format('YYYY-MM-DD'),
-                dataFinish: moment('2021/11/12').format('YYYY-MM-DD'),
-                status : 'available',
-                id : '6'
-            },
-            {
-                name:'75% Promotion Cart',
-                code : 'FF2-K2K-GT5',
-                dataStart: moment('2020/01/23').format('YYYY-MM-DD'),
-                dataFinish: moment('2023/02/28').format('YYYY-MM-DD'),
-                status : 'used',
-                id : '7'
-            },
-            {
-                name:'95% Promotion Cart',
-                code : 'P4O-12K-I12',
-                dataStart: moment('2020/01/05').format('YYYY-MM-DD'),
-                dataFinish: moment('2020/02/25').format('YYYY-MM-DD'),
-                status : 'available',
-                id : '8'
-            },
-            {
-                name:'80% Promotion Cart',
-                code : 'BRO-8GK-T40',
-                dataStart: moment('2019/08/05').format('YYYY-MM-DD'),
-                dataFinish: moment('2020/10/25').format('YYYY-MM-DD'),
-                status : 'available',
-                id : '9'
-            }
-        ]),
+        carts: ko.observableArray(),
         defaults : {
                 /* carts : [
                     {
@@ -214,23 +141,43 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
             return this;
         }, */
         filterCart(){
-            this.carts.filter(cart=>{
-                let dateNaw = new Date();
-                if(dateNaw<=new Date(cart.dataFinish)){
-                    if (cart.status === 'used'){
-                        $('#id'+cart.id+'.front').css('display','none');
-                        $('#id'+cart.id+'.front-used').css('display','block');
-                        $('#id'+cart.id+'.front-used').css('transform','rotateY(0)');
-                    }else {
-                        cart.status = 'available'
-                    }
-                }else {
 
-                    $('#id'+cart.id+'.front').css('display','none');
-                    $('#id'+cart.id+'.front-unavailable').css('display','block');
-                    cart.status='unavailable';
-                }
+            // this.carts.filter(cart=>{
+            // let dateNaw = new Date();
+            $.ajax({
+                url: "/helloworld/index/index",
+                dataType: "json"
+            }).done((data)=>{
+                console.log(data.carts);
+                this.carts(data.carts);
+                this.carts.filter(cart=>{
+                    if (cart.status === 'used'){
+                        // console.log(cart.status);
+                        $('#id'+cart.cart_id+'.front-used').css('transform','rotateY(0)');
+                    }
+                })
+
+            }).fail(()=>{
+                alert("yps");
+            }).always(()=>{
+
             });
+
+                // if(dateNaw<=new Date(cart.dataFinish)){
+                //     if (this.carts.status === 'used'){
+                //         $('#id'+cart.id+'.front').css('display','none');
+                //         $('#id'+cart.id+'.front-used').css('display','block');
+                //         $('#id'+this.carts.id+'.front-used').css('transform','rotateY(0)');
+                    // }else {
+                //         cart.status = 'available'
+                //     }
+                // }else {
+                //
+                //     $('#id'+cart.id+'.front').css('display','none');
+                //     $('#id'+cart.id+'.front-unavailable').css('display','block');
+                //     cart.status='unavailable';
+                //     }
+            // });
         },
 
         keyUpValid: function (data, event) {
@@ -251,12 +198,12 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
                 // let thisData = new Date();
                     this.carts().filter(cart=>{
                         user.codes.filter(code =>{
-                            if(code === cart.code){
-                                let korectId = 'id'+cart.id;
+                            if(code === cart.promotion){
+                                console.log(cart.cart_id);
+                                let korectId = 'id'+cart.cart_id;
                                 if(korectId == idCart){
-                                    ko.options.deferUpdates = true;
-                                    cart.status='used';
-                                    console.log(this.carts());
+                                    // ko.options.deferUpdates = true;
+                                    // console.log(cart.status);
                                     this.transformCart(idCart);
                                 }
                         }
@@ -279,23 +226,49 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
         } ,
         transformCart: function(idCart){
             let id = document.querySelector('#'+idCart);
-                for (let i=0;i<=90;i++){
-                        $('#'+idCart+'.front').css('transition-duration','1.5s');
-                        $('#'+idCart+'.front').css('transform','rotateY('+ i +'deg)');
+            for (let i=0;i<=90;i++){
+                $('#'+idCart+'.front').css('transition-duration','1.5s');
+                $('#'+idCart+'.front').css('transform','rotateY('+ i +'deg)');
+            }
 
-                    }
-            setTimeout(function () {
-                    $('#'+idCart+'.front').css('display','none');
-                    $('#'+idCart+'+.back').css('display','block');
-                setTimeout(function () {
+
+
+            setTimeout( ()=> {
+                    this.statusActive(idCart);
+                    // $('#'+idCart+'.front').css('display','none');
+                    //  $('#'+idCart+'+.back').css('display','block');
+                setTimeout( () =>{
                     for (let i = 90; i >= 0; i--) {
-                        $('#' + idCart + '+.back').css('transition-duration', '4.5s');
-                        $('#' + idCart + '+.back').css('transform', 'rotateY(' + i + 'deg)');
+                        $('#'+idCart+'.back').css('transition-duration', '4.5s');
+                        $('#'+idCart+'.back').css('transform', 'rotateY(' + i + 'deg)');
 
                     }
                 },100);
             },1100);
+
          },
+        statusActive : function(idCart){
+            let carts = this.carts();
+            carts.filter(cart => {
+                let cart_id ='id' +cart.cart_id;
+                // console.log(idCart + '</br>'+ cart_id)
+                if (idCart === cart_id){
+                   return  cart.status = 'active';
+                }
+            });
+            this.carts(carts);
+        },
+        statusUsed : function(idCart){
+            let carts = this.carts();
+            carts.filter(cart => {
+                let cart_id ='id' +cart.cart_id;
+                // console.log(idCart + '</br>'+ cart_id)
+                if (idCart === cart_id){
+                    return  cart.status = 'used';
+                }
+            });
+            this.carts(carts);
+        },
         backCart : function (event) {
             let idCart=event.target.id;
 
@@ -310,8 +283,9 @@ define(['uiComponent', 'ko', 'jquery', 'moment'], function(Component, ko, $, mom
             });
 
             setTimeout(() => {
-                $('#'+idCart+'.back').css('display','none');
-                $('#'+idCart+'.front-used').css('display','block');
+                this.statusUsed(idCart);
+                // $('#'+idCart+'.back').css('display','none');
+                // $('#'+idCart+'.front-used').css('display','block');
                 setTimeout(() => {
                     for (let i = 90; i >= 0; i--) {
                         $('#'+idCart+'.front-used').css('transition-duration', '4.5s');
