@@ -1,0 +1,85 @@
+<div class="cart-block col-md-3 col-sm-6 col-xs-12" repeat="foreach: carts, item: 'cart'" data-bind="attr:{id:'id'+cart().cart_id}" >
+            <!-- ko if:cart().status === 'available' -->
+            <div class="front " data-bind="attr:{id:'id'+cart().cart_id}">
+                <section class="banner" data-bind="attr:{id:'id'+cart().cart_id}">
+                    </br></br></br></br></br>
+                </section>
+                <div class="bottomCart">
+                    <div class="namecart">
+                        <span class="namesCarts padd" data-bind="text:cart().cart_name">25% Promotion Cart</span>
+                        <div class="checkUser">
+                            <span class="nameUser">
+                                Enter name
+                                <input type="text" class="textUser" data-bind="attr:{id:'id'+cart().cart_id},event:{ 'keyup': keyUpValid }" >
+                            </span>
+                            <button class="buttonCheck" data-bind="click: function() { validUser(event) }, attr:{id:'id'+cart().cart_id}">Check</button>
+                        </div>
+                        <div class="errorName" data-bind="attr:{id:'id'+cart().cart_id}"><p>There is no such name</p></div>
+                    </div>
+                </div>
+             </div>
+            <!-- /ko -->
+            <!-- ko if:cart().status === 'active' -->
+            <div class="back" data-bind="attr:{id:'id'+cart().cart_id}">
+                <section class="banner_green">
+
+                    </br></br></br></br></br>
+                </section>
+                <div class="bottomCart-back" >
+                    <div class="namecart">
+                        <span class="namesCarts pad" data-bind="text:cart().promotion" />
+                        <div class="checkUser">
+                            <div class="date-start">
+                                <span data-bind="text:cart().dataStart"></span>
+                                <span>-</span>
+                                <span data-bind="text:cart().dataFinish"></span>
+                            </div>
+                            <button class="buttonCheck-back" data-bind="click: function() { backCart(event) }, attr:{id:'id'+cart().cart_id}">Back</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if:cart().status === 'used' -->
+            <div class="front-used" data-bind="attr:{id:'id'+cart().cart_id}">
+                <section class="banner_used">
+
+                    </br></br></br></br></br>
+                </section>
+                <div class="bottomCart-used">
+                    <div class="namecart">
+                        <span class="namesCarts pad" data-bind="text:cart().promotion" />
+                        <div class="checkUser-used">
+                            <div class="date-start">
+                                <span data-bind="text:cart().dataStart"></span>
+                                <span> - </span>
+                                <span data-bind="text:cart().dataFinish"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if:cart().status === 'unavailable' -->
+            <div class="front-unavailable" data-bind="attr:{id:'id'+cart().cart_id}">
+                <section class="banner_unavailable">
+
+                    </br></br></br></br></br>
+                </section>
+                <div class="bottomCart-unavailable">
+                    <div class="namecart">
+                        <span class="namesCarts pad" data-bind="text:cart().promotion">25% Promotion Cart</span>
+                        <div class="checkUser-unavailable">
+                            <div class="date-start">
+                                <span data-bind="text:cart().dataStart"></span>
+                                <span> - </span>
+                                <span data-bind="text:cart().dataFinish"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
